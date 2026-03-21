@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NSAALP — National Skill Alignment &amp; Adaptive Learning Portal</title>
+  <meta name="description" content="AI-Powered Personalized Learning for Workforce Readiness. Analyze your skills, identify gaps, and get a personalised learning pathway."/>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+<!-- Tricolor stripe -->
+<div class="tricolor-stripe"></div>
+
+
+
+<!-- Main header -->
+<header class="main-header">
+  <div class="header-inner">
+    <a href="#" class="header-logo" onclick="showSection('input'); return false;">
+      <div class="logo-emblem">
+        <div class="logo-emblem-text">NS</div>
+      </div>
+      <div class="logo-text-block">
+        <div class="logo-title">NSAALP</div>
+        <div class="logo-subtitle">National Skill Alignment &amp; Adaptive Learning Portal</div>
+      </div>
+    </a>
+    <nav class="header-nav" aria-label="Main navigation">
+      <button class="nav-link active" id="nav-input" onclick="showSection('input')">
+        <span class="nav-icon">&#127968;</span> Home
+      </button>
+      <button class="nav-link" id="nav-assessment" onclick="showSection('assessment')" disabled>
+        <span class="nav-icon">&#128221;</span> Assessment
+      </button>
+      <button class="nav-link" id="nav-results" onclick="showSection('results')" disabled>
+        <span class="nav-icon">&#128202;</span> Dashboard
+      </button>
+      <button class="nav-link" id="nav-roadmap" onclick="showSection('roadmap')" disabled>
+        <span class="nav-icon">&#128506;</span> Pathway
+      </button>
+    </nav>
+    <div style="display:flex;align-items:center;gap:8px;margin-left:auto;padding:0 8px;">
+      <div style="display:flex;align-items:center;gap:5px;font-size:0.7rem;font-family:var(--font-head);color:rgba(255,255,255,0.6);">
+        <span id="conn-status-dot" style="width:7px;height:7px;border-radius:50%;background:#C0392B;flex-shrink:0;transition:background 0.5s;"></span>
+        <span id="conn-status-text" style="display:none;">Offline</span>
+      </div>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Open menu" onclick="toggleMobileNav()">&#9776;</button>
+  </div>
+</header>
+
+<!-- Mobile nav -->
+<nav class="mobile-nav" id="mobile-nav">
+  <button class="mobile-nav-close" onclick="toggleMobileNav()">&#10005;</button>
+  <button class="mobile-nav-item active" id="mnav-input" onclick="showSection('input'); toggleMobileNav()">&#127968; Home</button>
+  <button class="mobile-nav-item" id="mnav-assessment" onclick="showSection('assessment'); toggleMobileNav()" disabled>&#128221; Assessment</button>
+  <button class="mobile-nav-item" id="mnav-results" onclick="showSection('results'); toggleMobileNav()" disabled>&#128202; Dashboard</button>
+  <button class="mobile-nav-item" id="mnav-roadmap" onclick="showSection('roadmap'); toggleMobileNav()" disabled>&#128506; Pathway</button>
+</nav>
+
+<!-- ═══════════════════════════════ PAGE: INPUT ═══════════════════════════ -->
+<div id="section-input">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-pattern">
+      <div class="hero-dots"></div>
+    </div>
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <div class="hero-badge-dot"></div>
+          AI-Powered · Official Platform
+        </div>
+        <h1 class="hero-title">
+          AI-Powered Personalized Learning
+          <em>for Workforce Readiness</em>
+        </h1>
+        <p class="hero-sub">
+          Upload your resume and target job description. Our adaptive engine analyses skill gaps, classifies your experience level, and generates a dependency-aware personalised learning pathway — free of charge.
+        </p>
+        <div class="hero-actions">
+          <button class="btn btn-primary btn-lg" onclick="document.getElementById('upload-anchor').scrollIntoView({behavior:'smooth'})">
+            &#128640; Get Started
+          </button>
+          <button class="btn btn-outline" onclick="showSection('assessment')">
+            &#128221; Take Skill Quiz
+          </button>
+        </div>
+        <div class="hero-stats">
+          <div>
+            <div class="hero-stat-num">35+</div>
+            <div class="hero-stat-label">Curated Courses</div>
+          </div>
+          <div>
+            <div class="hero-stat-num">80+</div>
+            <div class="hero-stat-label">Skill Nodes</div>
+          </div>
+          <div>
+            <div class="hero-stat-num">4</div>
+            <div class="hero-stat-label">Job Domains</div>
+          </div>
+          <div>
+            <div class="hero-stat-num">O*NET</div>
+            <div class="hero-stat-label">Taxonomy</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hero-visual-title">How it works</div>
+        <div class="process-steps">
+          <div class="ps-step">
+            <div class="ps-num">1</div>
+            <div>
+              <div class="ps-text">Upload Resume &amp; JD</div>
+              <div class="ps-sub">PDF or paste text</div>
+            </div>
+          </div>
+          <div class="ps-step step-green">
+            <div class="ps-num">2</div>
+            <div>
+              <div class="ps-text">AI Skill Extraction</div>
+              <div class="ps-sub">O*NET taxonomy matching</div>
+            </div>
+          </div>
+          <div class="ps-step">
+            <div class="ps-num">3</div>
+            <div>
+              <div class="ps-text">Gap Analysis</div>
+              <div class="ps-sub">Match % · Missing skills</div>
+            </div>
+          </div>
+          <div class="ps-step step-gold">
+            <div class="ps-num">4</div>
+            <div>
+              <div class="ps-text">Adaptive Roadmap</div>
+              <div class="ps-sub">Dependency-aware pathway</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="section section-alt">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-tag">&#127775; Platform Features</div>
+        <h2 class="section-title">Intelligent Skill Development, Simplified</h2>
+        <p class="section-desc">Powered by O*NET Skills Database and Kaggle Resume Dataset for accurate, validated skill extraction and matching.</p>
+        <div class="section-divider"></div>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon fi-blue">&#129504;</div>
+          <div class="feature-step-num">01</div>
+          <div class="feature-title">Intelligent Skill Extraction</div>
+          <div class="feature-desc">NLP-powered extraction using O*NET occupational taxonomy. Identifies skills, experience levels, and seniority indicators from your resume automatically.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon fi-orange">&#128300;</div>
+          <div class="feature-step-num">02</div>
+          <div class="feature-title">Precise Gap Analysis</div>
+          <div class="feature-desc">Compares your profile against job requirements using Jaccard similarity. Shows matching skills, missing skills, and exact gap percentage.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon fi-green">&#128218;</div>
+          <div class="feature-step-num">03</div>
+          <div class="feature-title">Adaptive Learning Pathway</div>
+          <div class="feature-desc">Graph-based topological sort resolves skill prerequisites. Beginners get foundational paths; advanced learners skip to advanced content.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon fi-gold">&#127919;</div>
+          <div class="feature-step-num">04</div>
+          <div class="feature-title">MCQ Diagnostic Quiz</div>
+          <div class="feature-desc">10-question domain-specific assessment refines your skill level classification for a more accurate, personalised pathway.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon fi-blue">&#9889;</div>
+          <div class="feature-step-num">05</div>
+          <div class="feature-title">Real-Time Adaptation</div>
+          <div class="feature-desc">Mark courses as completed and the pathway dynamically updates, removing fulfilled prerequisites and reprioritizing remaining steps.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon fi-orange">&#128202;</div>
+          <div class="feature-step-num">06</div>
+          <div class="feature-title">Validation Metrics</div>
+          <div class="feature-desc">Every analysis includes match accuracy, gap precision, path relevance score, and estimated training time reduction percentage.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Upload section -->
+  <section class="section" id="upload-anchor">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-tag">&#128196; Submit Application</div>
+        <h2 class="section-title">Begin Your Skill Assessment</h2>
+        <p class="section-desc">Provide your resume and target job description to receive your personalised analysis and learning pathway.</p>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="upload-section-bg">
+        <div class="upload-section-header">
+          <div class="ush-left">
+            <div class="ush-tag">Step 1 of 4</div>
+            <div class="ush-title">Resume &amp; Job Description</div>
+            <div class="ush-sub">Both fields are required for analysis</div>
+          </div>
+          <div class="ush-steps">
+            <div class="ush-step active">
+              <div class="ush-step-dot"></div>
+              Details
+            </div>
+            <div class="ush-step">
+              <div class="ush-step-dot"></div>
+              Analysis
+            </div>
+            <div class="ush-step">
+              <div class="ush-step-dot"></div>
+              Pathway
+            </div>
+          </div>
+        </div>
+
+        <div class="upload-section-body">
+          <!-- Preset bar -->
+          <div class="preset-bar">
+            <span class="preset-label">Sample Profiles:</span>
+            <button class="preset-chip" onclick="loadPreset('data_science')">&#128300; Data Scientist</button>
+            <button class="preset-chip" onclick="loadPreset('frontend')">&#9883; Frontend Engineer</button>
+            <button class="preset-chip" onclick="loadPreset('hr')">&#128101; HR Partner</button>
+            <button class="preset-chip" onclick="loadPreset('sales')">&#128200; Sales Manager</button>
+          </div>
+
+          <div class="upload-grid">
+            <!-- Resume -->
+            <div>
+              <div class="fg-label">
+                <div class="fg-label-icon">&#128196;</div>
+                Section A — Your Resume / CV
+                <span class="fg-required">Required</span>
+              </div>
+              <p class="fg-hint">Upload a PDF file or paste your resume text directly.</p>
+
+              <div class="tab-switcher">
+                <button class="tab-btn active" id="tab-paste" onclick="switchResumeTab('paste')">
+                  &#9998; Paste Text
+                </button>
+                <button class="tab-btn" id="tab-upload" onclick="switchResumeTab('upload')">
+                  &#8679; Upload File
+                </button>
+              </div>
+
+              <!-- Paste panel -->
+              <div id="resume-paste-panel" style="display:flex;flex-direction:column;">
+                <textarea id="resume-input" rows="10"
+                  placeholder="Paste your resume or CV here...&#10;&#10;Example:&#10;Software Engineer with 4 years experience in Python and data science.&#10;Skills: Python, SQL, pandas, scikit-learn, Git, Docker.&#10;Built ML pipelines and deployed models to AWS production environment."></textarea>
+                <div class="char-indicator" id="resume-count">0 characters</div>
+              </div>
+
+              <!-- Upload panel -->
+              <div id="resume-upload-panel" style="display:none;">
+                <div class="upload-dropzone" id="upload-zone"
+                     onclick="document.getElementById('resume-file').click()"
+                     ondragover="handleDragOver(event)"
+                     ondrop="handleDrop(event)"
+                     ondragleave="handleDragLeave(event)">
+                  <input type="file" id="resume-file" accept=".pdf,.txt" style="display:none"
+                         onchange="handleFileUpload(event)">
+                  <div class="udz-icon">&#8679;</div>
+                  <div class="udz-title">Drag &amp; drop your resume here</div>
+                  <div class="udz-sub">PDF or TXT &mdash; Maximum 5MB</div>
+                  <button class="btn btn-ghost btn-sm" type="button"
+                          onclick="event.stopPropagation(); document.getElementById('resume-file').click()">
+                    Browse Files
+                  </button>
+                </div>
+                <div id="upload-status" style="display:none;" class="upload-success-card">
+                  <div class="usc-row">
+                    <span class="usc-icon" id="us-icon">&#9203;</span>
+                    <div>
+                      <div class="usc-name" id="us-name">—</div>
+                      <div class="usc-detail" id="us-detail">Processing...</div>
+                    </div>
+                    <button class="usc-remove" onclick="clearUpload()">Remove</button>
+                  </div>
+                  <div id="upload-skills-preview" style="display:none;" class="skills-detected">
+                    <div class="sd-label">Skills detected in document</div>
+                    <div class="sd-tags" id="up-tags"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- JD -->
+            <div>
+              <div class="fg-label">
+                <div class="fg-label-icon">&#128188;</div>
+                Section B — Target Job Description
+                <span class="fg-required">Required</span>
+              </div>
+              <p class="fg-hint">Paste the complete job description for the role you are targeting.</p>
+              <textarea id="jd-input" rows="14"
+                placeholder="Paste the job description here...&#10;&#10;Example:&#10;We are hiring a Senior Data Scientist.&#10;Required: Machine Learning, Deep Learning, Python, TensorFlow,&#10;MLOps, Docker, Kubernetes, AWS, NLP, SQL Advanced.&#10;5+ years of experience required."></textarea>
+              <div class="char-indicator" id="jd-count">0 characters</div>
+            </div>
+          </div>
+
+          <!-- Connection Error Panel -->
+          <div id="conn-error-panel" style="display:none;margin-bottom:16px;">
+            <div style="background:#fff5f5;border:2px solid #C0392B;border-radius:12px;padding:20px 24px;">
+              <div style="display:flex;align-items:flex-start;gap:14px;">
+                <div style="font-size:1.8rem;flex-shrink:0;">⚠️</div>
+                <div>
+                  <div style="font-family:var(--font-head);font-size:1rem;font-weight:700;color:#9b2318;margin-bottom:6px;">
+                    Backend Not Running
+                  </div>
+                  <div style="font-size:0.85rem;color:#7a1e17;line-height:1.6;margin-bottom:12px;">
+                    The Flask backend server is not reachable. The page is served by Flask itself, so this means the server crashed or you opened the HTML file directly from disk.
+                  </div>
+                  <div style="background:#1a3c6d;color:white;border-radius:8px;padding:14px 18px;font-family:var(--font-mono);font-size:0.8rem;line-height:1.9;">
+                    <div style="color:rgba(255,255,255,0.5);font-size:0.68rem;margin-bottom:4px;">RUN ONE OF THESE:</div>
+                    <div>python run.py</div>
+                    <div style="color:rgba(255,255,255,0.4);">— or —</div>
+                    <div>cd ai-onboarding-engine &amp;&amp; python backend/app.py</div>
+                    <div style="color:rgba(255,255,255,0.4);">— then open —</div>
+                    <div style="color:#FF6B00;">http://127.0.0.1:5000</div>
+                  </div>
+                  <div style="margin-top:10px;font-size:0.75rem;color:#9b2318;font-family:var(--font-mono);">
+                    Error: <span id="conn-error-detail" style="opacity:0.7;">unknown</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Actions -->
+          <div class="upload-actions">
+            <button class="btn btn-ghost" onclick="showSection('assessment')">
+              &#128221; Take Diagnostic Quiz First
+            </button>
+            <div style="display:flex;gap:12px;">
+              <button class="btn btn-navy" id="analyze-btn" onclick="analyzeProfile()">
+                &#9654; Analyse My Profile
+              </button>
+              <button class="btn btn-primary" onclick="analyzeProfile()">
+                &#128640; Generate Learning Pathway
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Loading overlay -->
+  <div class="loading-overlay" id="loading" style="display:none;">
+    <div class="loading-card">
+      <div class="loading-spinner-wrap">
+        <div class="spinner-ring"></div>
+        <div class="spinner-inner">&#129504;</div>
+      </div>
+      <div class="loading-title">Analysing Your Profile</div>
+      <div class="loading-sub">Please wait while we process your application...</div>
+      <div class="loading-steps-list">
+        <div class="load-step active" id="ls1"><div class="load-step-dot"></div>Extracting skills from resume</div>
+        <div class="load-step" id="ls2"><div class="load-step-dot"></div>Parsing job requirements</div>
+        <div class="load-step" id="ls3"><div class="load-step-dot"></div>Computing skill gap</div>
+        <div class="load-step" id="ls4"><div class="load-step-dot"></div>Building dependency graph</div>
+        <div class="load-step" id="ls5"><div class="load-step-dot"></div>Generating adaptive pathway</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-logo-block">
+          <div class="footer-logo-row">
+            <div class="logo-emblem" style="width:36px;height:36px;font-size:0.75rem;">NS</div>
+            <div class="footer-logo-name">NSAALP</div>
+          </div>
+          <p class="footer-desc">National Skill Alignment &amp; Adaptive Learning Portal — an AI-powered workforce development platform aligned with National Skill Development Mission objectives.</p>
+          <div class="footer-badges">
+            <span class="footer-badge">O*NET v28.0</span>
+            <span class="footer-badge">Kaggle Dataset</span>
+            <span class="footer-badge">Beta Service</span>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Platform</div>
+          <div class="footer-col-links">
+            <a href="#">Home</a>
+            <a href="#">About NSAALP</a>
+            <a href="#">How it Works</a>
+            <a href="#">Skill Taxonomy</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Resources</div>
+          <div class="footer-col-links">
+            <a href="https://www.onetcenter.org/db_releases.html" target="_blank">O*NET Database</a>
+            <a href="https://www.kaggle.com/datasets/snehaanbhawal/resume-dataset" target="_blank">Resume Dataset</a>
+            <a href="#">API Documentation</a>
+            <a href="#">Dataset Citations</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Support</div>
+          <div class="footer-col-links">
+            <a href="#">Accessibility</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Use</a>
+            <a href="#">Contact Us</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-bottom-text">
+          &copy; 2025 NSAALP &mdash; Government of India Inspired Prototype &mdash; Ministry of Skill Development &amp; Entrepreneurship
+        </div>
+        <div class="footer-bottom-right">
+          <a href="#">Privacy</a>
+          <a href="#">Accessibility</a>
+          <a href="#">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <div class="footer-tricolor"></div>
+</div>
+
+<!-- ═══════════════════════════ PAGE: ASSESSMENT ════════════════════════ -->
+<div id="section-assessment" style="display:none;">
+  <div class="page-wrapper">
+    <div style="margin-bottom:32px;">
+      <div class="section-tag" style="display:inline-flex;margin-bottom:12px;">&#128221; Step 2 of 4</div>
+      <h1 style="font-family:var(--font-head);font-size:2rem;font-weight:800;color:var(--navy-dark);margin-bottom:8px;">Diagnostic Knowledge Assessment</h1>
+      <p style="color:var(--text-muted);max-width:600px;line-height:1.7;">Complete 10 multiple-choice questions to refine your skill level classification. Your score overrides automatic detection for a more accurate learning pathway.</p>
+    </div>
+
+    <div class="assessment-wrap">
+      <div class="domain-row">
+        <span class="domain-label">Domain:</span>
+        <button class="domain-chip active" id="dp-technical"     onclick="setAssessmentDomain('technical')">&#9881; Technical / Dev</button>
+        <button class="domain-chip"        id="dp-data_science"  onclick="setAssessmentDomain('data_science')">&#128202; Data Science</button>
+        <button class="domain-chip"        id="dp-non_technical" onclick="setAssessmentDomain('non_technical')">&#129309; Non-Technical</button>
+        <button class="domain-chip"        id="dp-management"    onclick="setAssessmentDomain('management')">&#128203; Management</button>
+      </div>
+
+      <!-- Start panel -->
+      <div id="mcq-start" class="quiz-start-card">
+        <div class="qsc-header">
+          <div class="qsc-icon">&#127919;</div>
+          <div class="qsc-title">Before You Begin</div>
+          <div class="qsc-sub">Read each question carefully. You can skip questions you're unsure about.</div>
+        </div>
+        <div class="qsc-body">
+          <div class="qsc-facts">
+            <div class="qsc-fact"><div class="qsc-fact-num">10</div><div class="qsc-fact-lbl">Questions</div></div>
+            <div class="qsc-fact"><div class="qsc-fact-num">3</div><div class="qsc-fact-lbl">Minutes</div></div>
+            <div class="qsc-fact"><div class="qsc-fact-num">4</div><div class="qsc-fact-lbl">Categories</div></div>
+            <div class="qsc-fact"><div class="qsc-fact-num">3</div><div class="qsc-fact-lbl">Levels</div></div>
+          </div>
+          <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+            <button class="btn btn-primary btn-lg" onclick="startMCQ()">&#9654; Start Assessment</button>
+            <button class="btn btn-ghost" onclick="showSection('input')">&larr; Back to Input</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Active quiz -->
+      <div id="mcq-active" style="display:none;">
+        <div class="quiz-progress-wrap">
+          <div class="qp-top">
+            <span class="qp-cat" id="qp-cat-badge">Category</span>
+            <span class="qp-frac" id="qp-frac">Question 1 of 10</span>
+          </div>
+          <div class="qp-bar"><div class="qp-fill" id="qp-fill" style="width:10%;"></div></div>
+        </div>
+        <div class="mcq-card" id="mcq-question-card">
+          <div class="mcq-card-head">
+            <div class="mcq-q-num" id="mcq-q-num">Q1</div>
+            <div class="mcq-q-text" id="mcq-q-text">Loading...</div>
+          </div>
+          <div class="mcq-opts" id="mcq-options"></div>
+          <div class="mcq-feedback" id="mcq-feedback" style="display:none;"></div>
+          <div class="mcq-foot">
+            <button class="btn btn-ghost btn-sm" id="mcq-skip" onclick="skipQuestion()">Skip</button>
+            <button class="btn btn-navy btn-sm" id="mcq-next" onclick="nextQuestion()" disabled>Next &#8594;</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Results -->
+      <div id="mcq-results" style="display:none;">
+        <div class="results-panel">
+          <div class="rp-header">
+            <div class="rp-score">
+              <div class="rp-pct" id="mr-pct">0%</div>
+              <div class="rp-pct-label">Score</div>
+            </div>
+            <div class="rp-info">
+              <div class="rp-kicker">Assessment Result</div>
+              <div class="rp-level" id="mr-level-display">—</div>
+              <div class="rp-desc" id="mr-desc">—</div>
+            </div>
+          </div>
+          <div class="rp-body">
+            <div class="rp-cats" id="mr-cats-grid"></div>
+            <div class="rp-review-head">
+              <span>Question Review</span>
+              <span id="mr-correct-label">—</span>
+            </div>
+            <div id="mr-review-list"></div>
+          </div>
+          <div class="rp-footer">
+            <button class="btn btn-ghost btn-sm" onclick="retakeMCQ()">&#8635; Retake</button>
+            <button class="btn btn-primary" onclick="analyzeWithQuizLevel()">Apply Result &amp; Generate Pathway &#8594;</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:32px;">
+      <button class="btn btn-ghost btn-sm" onclick="showSection('input')">&larr; Back to Input</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ PAGE: RESULTS ═══════════════════════════ -->
+<!-- ═══════════════════ SECTION 3: RESULTS DASHBOARD ═══════════════════ -->
+<div id="section-results" style="display:none;">
+  <div class="db-shell">
+
+    <!-- Dashboard sidebar -->
+    <aside class="db-sidebar">
+      <div class="db-sidebar-top">
+        <div class="db-sidebar-label">Analysis</div>
+        <div class="db-sidebar-nav">
+          <button class="db-nav-item active" onclick="showSection('results')">
+            <span class="db-nav-icon">◈</span>
+            <span>Overview</span>
+          </button>
+          <button class="db-nav-item" onclick="showSection('roadmap')">
+            <span class="db-nav-icon">◎</span>
+            <span>Pathway</span>
+          </button>
+          <button class="db-nav-item" onclick="showSection('input')">
+            <span class="db-nav-icon">↩</span>
+            <span>New Analysis</span>
+          </button>
+        </div>
+      </div>
+      <div class="db-sidebar-profile">
+        <div class="db-profile-ring">
+          <svg viewBox="0 0 56 56" width="56" height="56">
+            <circle cx="28" cy="28" r="24" fill="none" stroke="#e8eef6" stroke-width="4"/>
+            <circle cx="28" cy="28" r="24" fill="none" stroke="url(#ringGrad)" stroke-width="4"
+              stroke-dasharray="150.8" stroke-dashoffset="150.8" id="sidebar-ring"
+              stroke-linecap="round" transform="rotate(-90 28 28)"
+              style="transition:stroke-dashoffset 1.5s ease 0.3s"/>
+            <defs>
+              <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#1a3c6d"/>
+                <stop offset="100%" stop-color="#FF6B00"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          <div class="db-profile-pct" id="sidebar-match-pct">—</div>
+        </div>
+        <div class="db-profile-label">Match Score</div>
+        <div class="db-profile-level-badge" id="sidebar-level">—</div>
+      </div>
+    </aside>
+
+    <!-- Dashboard main -->
+    <main class="db-main">
+      <!-- Top bar -->
+      <div class="db-topbar">
+        <div>
+          <div class="db-page-eyebrow">Step 3 — Analysis Complete</div>
+          <h1 class="db-page-title">Skill Gap Dashboard</h1>
+        </div>
+        <div class="db-topbar-right">
+          <div class="db-source-pill">
+            <span class="db-source-dot"></span>
+            O*NET + Kaggle Dataset
+          </div>
+          <span id="results-meta" class="db-date-pill">Analysis ready</span>
+          <button class="btn btn-primary" onclick="showSection('roadmap')">
+            View Pathway →
+          </button>
+        </div>
+      </div>
+
+      <!-- Stat ring cards -->
+      <div class="db-ring-cards">
+
+        <div class="db-ring-card rcard-match">
+          <div class="rcard-ring-wrap">
+            <svg viewBox="0 0 80 80" width="80" height="80">
+              <circle cx="40" cy="40" r="32" fill="none" stroke="rgba(19,136,8,0.12)" stroke-width="6"/>
+              <circle cx="40" cy="40" r="32" fill="none" stroke="#138808" stroke-width="6"
+                stroke-dasharray="201.1" stroke-dashoffset="201.1" id="ring-match"
+                stroke-linecap="round" transform="rotate(-90 40 40)"
+                style="transition:stroke-dashoffset 1.4s cubic-bezier(0.4,0,0.2,1) 0.2s"/>
+            </svg>
+            <div class="rcard-ring-inner">
+              <div class="rcard-ring-val" id="met-match">—</div>
+            </div>
+          </div>
+          <div class="rcard-body">
+            <div class="rcard-label">Skill Match Rate</div>
+            <div class="rcard-sub" id="match-status">—</div>
+            <div class="rcard-bar-mini">
+              <div class="rcard-bar-fill rbf-green" id="bar-match" style="width:0%"></div>
+            </div>
+          </div>
+          <div class="rcard-icon-bg">⬟</div>
+        </div>
+
+        <div class="db-ring-card rcard-gap">
+          <div class="rcard-ring-wrap">
+            <svg viewBox="0 0 80 80" width="80" height="80">
+              <circle cx="40" cy="40" r="32" fill="none" stroke="rgba(192,57,43,0.12)" stroke-width="6"/>
+              <circle cx="40" cy="40" r="32" fill="none" stroke="#C0392B" stroke-width="6"
+                stroke-dasharray="201.1" stroke-dashoffset="201.1" id="ring-gap"
+                stroke-linecap="round" transform="rotate(-90 40 40)"
+                style="transition:stroke-dashoffset 1.4s cubic-bezier(0.4,0,0.2,1) 0.35s"/>
+            </svg>
+            <div class="rcard-ring-inner">
+              <div class="rcard-ring-val" id="met-gap">—</div>
+            </div>
+          </div>
+          <div class="rcard-body">
+            <div class="rcard-label">Skill Gap</div>
+            <div class="rcard-sub" id="gap-severity">—</div>
+            <div class="rcard-bar-mini">
+              <div class="rcard-bar-fill rbf-red" id="bar-gap" style="width:0%"></div>
+            </div>
+          </div>
+          <div class="rcard-icon-bg">⬡</div>
+        </div>
+
+        <div class="db-ring-card rcard-level">
+          <div class="rcard-level-icon" id="lb-badge">⚡</div>
+          <div class="rcard-body">
+            <div class="rcard-label">Skill Level</div>
+            <div class="rcard-level-val" id="met-level">—</div>
+            <div class="rcard-sub" id="met-years">—</div>
+          </div>
+          <div class="rcard-icon-bg">◈</div>
+        </div>
+
+        <div class="db-ring-card rcard-time">
+          <div class="rcard-ring-wrap">
+            <svg viewBox="0 0 80 80" width="80" height="80">
+              <circle cx="40" cy="40" r="32" fill="none" stroke="rgba(255,107,0,0.12)" stroke-width="6"/>
+              <circle cx="40" cy="40" r="32" fill="none" stroke="#FF6B00" stroke-width="6"
+                stroke-dasharray="201.1" stroke-dashoffset="201.1" id="ring-time"
+                stroke-linecap="round" transform="rotate(-90 40 40)"
+                style="transition:stroke-dashoffset 1.4s cubic-bezier(0.4,0,0.2,1) 0.5s"/>
+            </svg>
+            <div class="rcard-ring-inner">
+              <div class="rcard-ring-val" id="met-time">—</div>
+            </div>
+          </div>
+          <div class="rcard-body">
+            <div class="rcard-label">Training Time Saved</div>
+            <div class="rcard-sub">vs. generic curriculum</div>
+          </div>
+          <div class="rcard-icon-bg">⏱</div>
+        </div>
+
+      </div>
+
+      <!-- Two-column: Skills breakdown + Validation -->
+      <div class="db-two-col">
+
+        <!-- Left: Skills visualizer -->
+        <div class="db-card db-skills-card">
+          <div class="db-card-head">
+            <div class="db-card-title">Skill Profile Breakdown</div>
+            <div class="db-card-tabs">
+              <button class="db-tab active" onclick="switchSkillTab(this,'match')">Matched</button>
+              <button class="db-tab" onclick="switchSkillTab(this,'missing')">Missing</button>
+              <button class="db-tab" onclick="switchSkillTab(this,'extra')">Bonus</button>
+            </div>
+          </div>
+          <div class="db-skills-body">
+            <div class="db-skill-tab-panel active" id="stab-match">
+              <div class="db-skill-count-row">
+                <div class="db-skill-count-num" id="match-count">0</div>
+                <div class="db-skill-count-lbl">skills matched</div>
+              </div>
+              <div class="db-chips-wrap" id="matching-skills"></div>
+            </div>
+            <div class="db-skill-tab-panel" id="stab-missing">
+              <div class="db-skill-count-row">
+                <div class="db-skill-count-num db-count-red" id="missing-count">0</div>
+                <div class="db-skill-count-lbl">skills to acquire</div>
+              </div>
+              <div class="db-chips-wrap" id="missing-skills"></div>
+            </div>
+            <div class="db-skill-tab-panel" id="stab-extra">
+              <div class="db-skill-count-row">
+                <div class="db-skill-count-num db-count-grey" id="extra-count">0</div>
+                <div class="db-skill-count-lbl">bonus skills you have</div>
+              </div>
+              <div class="db-chips-wrap" id="extra-skills"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Validation metrics + Level -->
+        <div style="display:flex;flex-direction:column;gap:20px;">
+
+          <!-- Level declaration -->
+          <div class="db-card db-level-declaration">
+            <div class="db-ld-glow"></div>
+            <div class="db-ld-inner">
+              <div class="db-ld-icon-wrap">
+                <div class="db-ld-icon" id="lb-badge2">⚡</div>
+              </div>
+              <div class="db-ld-text">
+                <div class="db-ld-eyebrow">Assessed Skill Level</div>
+                <div class="db-ld-level" id="lb-title">—</div>
+                <div class="db-ld-desc" id="lb-desc">—</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Validation metrics -->
+          <div class="db-card db-metrics-card">
+            <div class="db-card-head">
+              <div class="db-card-title">Engine Validation</div>
+              <span class="db-badge-pill">AI Scored</span>
+            </div>
+            <div class="db-metrics-list">
+              <div class="db-metric-row">
+                <span class="db-metric-name">Match Accuracy</span>
+                <div class="db-metric-bar-wrap">
+                  <div class="db-metric-bar"><div class="db-metric-fill dmf-navy" id="vbar-accuracy" style="width:0%"></div></div>
+                </div>
+                <span class="db-metric-val" id="vm-accuracy">—</span>
+              </div>
+              <div class="db-metric-row">
+                <span class="db-metric-name">Gap Precision</span>
+                <div class="db-metric-bar-wrap">
+                  <div class="db-metric-bar"><div class="db-metric-fill dmf-blue" id="vbar-precision" style="width:0%"></div></div>
+                </div>
+                <span class="db-metric-val" id="vm-precision">—</span>
+              </div>
+              <div class="db-metric-row">
+                <span class="db-metric-name">Path Relevance</span>
+                <div class="db-metric-bar-wrap">
+                  <div class="db-metric-bar"><div class="db-metric-fill dmf-green" id="vbar-relevance" style="width:0%"></div></div>
+                </div>
+                <span class="db-metric-val" id="vm-relevance">—</span>
+              </div>
+              <div class="db-metric-row">
+                <span class="db-metric-name">Dataset Coverage</span>
+                <div class="db-metric-bar-wrap">
+                  <div class="db-metric-bar"><div class="db-metric-fill dmf-orange" id="vbar-coverage" style="width:0%"></div></div>
+                </div>
+                <span class="db-metric-val" id="vm-coverage">—</span>
+              </div>
+            </div>
+            <div class="db-metrics-cite">
+              <span class="db-cite-dot"></span>
+              O*NET Skills Database v28.0 · Kaggle Resume Dataset
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA strip -->
+      <div class="db-cta-strip">
+        <div class="db-cta-text">
+          <div class="db-cta-heading">Ready to close your skill gaps?</div>
+          <div class="db-cta-sub">Your personalised dependency-aware learning pathway is ready</div>
+        </div>
+        <button class="btn btn-primary btn-lg" onclick="showSection('roadmap')">
+          ⟶ &nbsp;View Full Learning Pathway
+        </button>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<!-- ═══════════════════ SECTION 4: ROADMAP ═══════════════════════════════ -->
+<div id="section-roadmap" style="display:none;">
+  <div class="db-shell">
+
+    <!-- Roadmap sidebar -->
+    <aside class="db-sidebar">
+      <div class="db-sidebar-top">
+        <div class="db-sidebar-label">Pathway</div>
+        <div class="db-sidebar-nav">
+          <button class="db-nav-item" onclick="showSection('results')">
+            <span class="db-nav-icon">◈</span>
+            <span>Overview</span>
+          </button>
+          <button class="db-nav-item active" onclick="showSection('roadmap')">
+            <span class="db-nav-icon">◎</span>
+            <span>Pathway</span>
+          </button>
+          <button class="db-nav-item" onclick="showSection('input')">
+            <span class="db-nav-icon">↩</span>
+            <span>New Analysis</span>
+          </button>
+        </div>
+      </div>
+      <!-- Pathway progress -->
+      <div class="db-sidebar-progress">
+        <div class="db-sp-label">Completion</div>
+        <div class="db-sp-ring-wrap">
+          <svg viewBox="0 0 80 80" width="80" height="80">
+            <circle cx="40" cy="40" r="32" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="5"/>
+            <circle cx="40" cy="40" r="32" fill="none" stroke="#FF6B00" stroke-width="5"
+              stroke-dasharray="201.1" stroke-dashoffset="201.1" id="roadmap-progress-ring"
+              stroke-linecap="round" transform="rotate(-90 40 40)"
+              style="transition:stroke-dashoffset 0.8s ease"/>
+          </svg>
+          <div class="db-sp-pct" id="roadmap-pct-display">0%</div>
+        </div>
+        <div class="db-sp-count" id="progress-text">0 / 0</div>
+        <div class="db-sp-sublabel">courses completed</div>
+      </div>
+      <!-- Pathway stats -->
+      <div class="db-sidebar-stats">
+        <div class="db-ss-item">
+          <div class="db-ss-val" id="rs-steps">—</div>
+          <div class="db-ss-label">Steps</div>
+        </div>
+        <div class="db-ss-item">
+          <div class="db-ss-val" id="rs-hours">—</div>
+          <div class="db-ss-label">Hours</div>
+        </div>
+        <div class="db-ss-item">
+          <div class="db-ss-val" id="rs-months">—</div>
+          <div class="db-ss-label">Months</div>
+        </div>
+        <div class="db-ss-item">
+          <div class="db-ss-val db-ss-orange" id="rs-saved">—</div>
+          <div class="db-ss-label">Saved</div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Roadmap main -->
+    <main class="db-main">
+      <div class="db-topbar">
+        <div>
+          <div class="db-page-eyebrow">Step 4 — Your Pathway</div>
+          <h1 class="db-page-title">Learning Roadmap</h1>
+        </div>
+        <div class="db-topbar-right">
+          <div class="db-source-pill">
+            <span class="db-source-dot db-dot-orange"></span>
+            <span id="roadmap-subtext">Adaptive · Dependency-Aware</span>
+          </div>
+          <button class="btn btn-outline btn-sm" onclick="showSection('results')">← Analysis</button>
+        </div>
+      </div>
+
+      <!-- Progress rail -->
+      <div class="db-progress-rail">
+        <div class="db-pr-label">Overall Progress</div>
+        <div class="db-pr-track">
+          <div class="db-pr-fill" id="progress-fill" style="width:0%"></div>
+        </div>
+      </div>
+
+      <!-- Already known bar -->
+      <div id="known-section" style="display:none;" class="db-known-bar">
+        <div class="db-known-icon">✓</div>
+        <div class="db-known-label">Already in your toolkit —</div>
+        <div class="db-known-chips" id="known-list"></div>
+      </div>
+
+      <!-- Timeline -->
+      <div class="db-timeline" id="roadmap-timeline"></div>
+
+      <div class="db-roadmap-footer">
+        <button class="btn btn-ghost" onclick="showSection('input')">← New Assessment</button>
+      </div>
+    </main>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal-overlay" id="quiz-modal" style="display:none;">
+  <div class="modal">
+    <div class="modal-head">
+      <div class="modal-title">Diagnostic Quiz</div>
+      <button class="modal-close" onclick="closeModal()">&#10005;</button>
+    </div>
+    <div class="modal-body" id="quiz-body"></div>
+    <div class="modal-foot">
+      <button class="btn btn-primary btn-block" onclick="submitQuiz()">Submit Answers</button>
+    </div>
+  </div>
+</div>
+
+<script src="/static/js/app.js"></script>
+</body>
+</html>

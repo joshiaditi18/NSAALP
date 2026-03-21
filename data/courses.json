@@ -1,0 +1,357 @@
+{
+  "courses": {
+    "Python Basics": {
+      "level": "beginner",
+      "duration_hours": 20,
+      "provider": "Coursera",
+      "url": "https://www.coursera.org/learn/python",
+      "description": "Introduction to Python programming fundamentals",
+      "domain": "technical"
+    },
+    "Python Intermediate": {
+      "level": "intermediate",
+      "duration_hours": 30,
+      "provider": "Udemy",
+      "url": "https://www.udemy.com/course/python-intermediate",
+      "description": "OOP, decorators, generators, and advanced Python patterns",
+      "domain": "technical"
+    },
+    "Python Advanced": {
+      "level": "advanced",
+      "duration_hours": 40,
+      "provider": "Pluralsight",
+      "url": "https://www.pluralsight.com/courses/advanced-python",
+      "description": "Metaclasses, async programming, CPython internals",
+      "domain": "technical"
+    },
+    "Programming Basics": {
+      "level": "beginner",
+      "duration_hours": 15,
+      "provider": "edX",
+      "url": "https://www.edx.org/course/cs50",
+      "description": "Core programming concepts: loops, conditionals, functions",
+      "domain": "technical"
+    },
+    "Data Structures": {
+      "level": "intermediate",
+      "duration_hours": 25,
+      "provider": "Coursera",
+      "url": "https://www.coursera.org/learn/data-structures",
+      "description": "Arrays, trees, graphs, hash tables",
+      "domain": "technical"
+    },
+    "Algorithms": {
+      "level": "intermediate",
+      "duration_hours": 30,
+      "provider": "MIT OpenCourseWare",
+      "url": "https://ocw.mit.edu/courses/6-006",
+      "description": "Sorting, searching, dynamic programming",
+      "domain": "technical"
+    },
+    "Machine Learning Fundamentals": {
+      "level": "intermediate",
+      "duration_hours": 40,
+      "provider": "Coursera",
+      "url": "https://www.coursera.org/learn/machine-learning",
+      "description": "Supervised/unsupervised learning, model evaluation",
+      "domain": "technical"
+    },
+    "Deep Learning": {
+      "level": "advanced",
+      "duration_hours": 50,
+      "provider": "fast.ai",
+      "url": "https://course.fast.ai",
+      "description": "Neural networks, CNNs, RNNs, transformers",
+      "domain": "technical"
+    },
+    "NLP Fundamentals": {
+      "level": "intermediate",
+      "duration_hours": 35,
+      "provider": "Hugging Face",
+      "url": "https://huggingface.co/learn/nlp-course",
+      "description": "Text processing, embeddings, transformers",
+      "domain": "technical"
+    },
+    "SQL Basics": {
+      "level": "beginner",
+      "duration_hours": 10,
+      "provider": "Mode Analytics",
+      "url": "https://mode.com/sql-tutorial",
+      "description": "SELECT, JOIN, GROUP BY, subqueries",
+      "domain": "technical"
+    },
+    "SQL Advanced": {
+      "level": "advanced",
+      "duration_hours": 20,
+      "provider": "DataCamp",
+      "url": "https://www.datacamp.com/courses/advanced-sql",
+      "description": "Window functions, CTEs, query optimization",
+      "domain": "technical"
+    },
+    "Data Analysis with Pandas": {
+      "level": "intermediate",
+      "duration_hours": 20,
+      "provider": "DataCamp",
+      "url": "https://www.datacamp.com/courses/pandas",
+      "description": "DataFrames, data wrangling, exploratory analysis",
+      "domain": "technical"
+    },
+    "Statistics for Data Science": {
+      "level": "beginner",
+      "duration_hours": 20,
+      "provider": "Khan Academy",
+      "url": "https://www.khanacademy.org/math/statistics-probability",
+      "description": "Probability, distributions, hypothesis testing",
+      "domain": "technical"
+    },
+    "Data Visualization": {
+      "level": "intermediate",
+      "duration_hours": 15,
+      "provider": "Tableau",
+      "url": "https://www.tableau.com/learn/training",
+      "description": "Charts, dashboards, storytelling with data",
+      "domain": "technical"
+    },
+    "Cloud Fundamentals (AWS)": {
+      "level": "beginner",
+      "duration_hours": 20,
+      "provider": "AWS Training",
+      "url": "https://aws.amazon.com/training",
+      "description": "EC2, S3, IAM, basic cloud architecture",
+      "domain": "technical"
+    },
+    "Docker & Kubernetes": {
+      "level": "intermediate",
+      "duration_hours": 30,
+      "provider": "Linux Foundation",
+      "url": "https://training.linuxfoundation.org",
+      "description": "Containerization, orchestration, deployment",
+      "domain": "technical"
+    },
+    "JavaScript Basics": {
+      "level": "beginner",
+      "duration_hours": 20,
+      "provider": "freeCodeCamp",
+      "url": "https://www.freecodecamp.org",
+      "description": "Variables, DOM, events, async JS",
+      "domain": "technical"
+    },
+    "React Fundamentals": {
+      "level": "intermediate",
+      "duration_hours": 25,
+      "provider": "Scrimba",
+      "url": "https://scrimba.com/learn/learnreact",
+      "description": "Components, hooks, state management",
+      "domain": "technical"
+    },
+    "System Design": {
+      "level": "advanced",
+      "duration_hours": 40,
+      "provider": "Educative",
+      "url": "https://www.educative.io/courses/grokking-modern-system-design",
+      "description": "Scalability, microservices, distributed systems",
+      "domain": "technical"
+    },
+    "Project Management Basics": {
+      "level": "beginner",
+      "duration_hours": 15,
+      "provider": "PMI",
+      "url": "https://www.pmi.org/learning/training-development",
+      "description": "Planning, scheduling, stakeholder management",
+      "domain": "non-technical"
+    },
+    "Agile & Scrum": {
+      "level": "intermediate",
+      "duration_hours": 10,
+      "provider": "Scrum.org",
+      "url": "https://www.scrum.org/courses",
+      "description": "Sprint planning, retrospectives, agile ceremonies",
+      "domain": "non-technical"
+    },
+    "Communication Skills": {
+      "level": "beginner",
+      "duration_hours": 10,
+      "provider": "Coursera",
+      "url": "https://www.coursera.org/learn/communication-skills",
+      "description": "Written, verbal, and presentation communication",
+      "domain": "non-technical"
+    },
+    "Sales Fundamentals": {
+      "level": "beginner",
+      "duration_hours": 15,
+      "provider": "HubSpot Academy",
+      "url": "https://academy.hubspot.com/courses/sales",
+      "description": "Prospecting, objection handling, closing",
+      "domain": "non-technical"
+    },
+    "CRM & Salesforce": {
+      "level": "intermediate",
+      "duration_hours": 20,
+      "provider": "Trailhead",
+      "url": "https://trailhead.salesforce.com",
+      "description": "Lead management, pipelines, reporting",
+      "domain": "non-technical"
+    },
+    "HR Fundamentals": {
+      "level": "beginner",
+      "duration_hours": 15,
+      "provider": "SHRM",
+      "url": "https://www.shrm.org/learning",
+      "description": "Recruitment, onboarding, compliance basics",
+      "domain": "non-technical"
+    },
+    "Talent Acquisition": {
+      "level": "intermediate",
+      "duration_hours": 20,
+      "provider": "LinkedIn Learning",
+      "url": "https://www.linkedin.com/learning",
+      "description": "Sourcing, interviewing, offer management",
+      "domain": "non-technical"
+    },
+    "Digital Marketing Basics": {
+      "level": "beginner",
+      "duration_hours": 15,
+      "provider": "Google Digital Garage",
+      "url": "https://learndigital.withgoogle.com",
+      "description": "SEO, SEM, social media marketing",
+      "domain": "non-technical"
+    },
+    "Content Marketing": {
+      "level": "intermediate",
+      "duration_hours": 15,
+      "provider": "HubSpot Academy",
+      "url": "https://academy.hubspot.com/courses/content-marketing",
+      "description": "Strategy, creation, distribution, analytics",
+      "domain": "non-technical"
+    },
+    "Financial Analysis": {
+      "level": "intermediate",
+      "duration_hours": 25,
+      "provider": "CFI",
+      "url": "https://corporatefinanceinstitute.com",
+      "description": "Financial modeling, valuation, ratio analysis",
+      "domain": "non-technical"
+    },
+    "Excel for Business": {
+      "level": "beginner",
+      "duration_hours": 10,
+      "provider": "Microsoft Learn",
+      "url": "https://learn.microsoft.com/excel",
+      "description": "Formulas, pivot tables, charts, VLOOKUP",
+      "domain": "non-technical"
+    },
+    "MLOps Fundamentals": {
+      "level": "advanced",
+      "duration_hours": 35,
+      "provider": "Weights & Biases",
+      "url": "https://www.wandb.ai/courses",
+      "description": "Model deployment, monitoring, CI/CD for ML",
+      "domain": "technical"
+    },
+    "Git & Version Control": {
+      "level": "beginner",
+      "duration_hours": 8,
+      "provider": "GitHub Learning Lab",
+      "url": "https://lab.github.com",
+      "description": "Branching, merging, pull requests, workflows",
+      "domain": "technical"
+    },
+    "Linux Basics": {
+      "level": "beginner",
+      "duration_hours": 10,
+      "provider": "Linux Foundation",
+      "url": "https://training.linuxfoundation.org/training/introduction-to-linux",
+      "description": "Shell commands, file system, permissions",
+      "domain": "technical"
+    },
+    "Leadership & Management": {
+      "level": "advanced",
+      "duration_hours": 20,
+      "provider": "Harvard Online",
+      "url": "https://online.hbs.edu/courses/leadership",
+      "description": "Team management, decision making, strategy",
+      "domain": "non-technical"
+    },
+    "Data Science Capstone Project": {
+      "level": "advanced",
+      "duration_hours": 60,
+      "provider": "Kaggle",
+      "url": "https://www.kaggle.com/competitions",
+      "description": "End-to-end data science project with real datasets",
+      "domain": "technical"
+    }
+  },
+  "skill_dependencies": {
+    "Machine Learning Fundamentals": ["Python Intermediate", "Statistics for Data Science", "Data Analysis with Pandas"],
+    "Deep Learning": ["Machine Learning Fundamentals", "Python Intermediate"],
+    "NLP Fundamentals": ["Deep Learning", "Python Intermediate"],
+    "Python Intermediate": ["Python Basics"],
+    "Python Advanced": ["Python Intermediate"],
+    "Python Basics": ["Programming Basics"],
+    "Data Analysis with Pandas": ["Python Basics", "Statistics for Data Science"],
+    "Data Structures": ["Programming Basics"],
+    "Algorithms": ["Data Structures"],
+    "SQL Advanced": ["SQL Basics"],
+    "React Fundamentals": ["JavaScript Basics"],
+    "Docker & Kubernetes": ["Linux Basics"],
+    "MLOps Fundamentals": ["Machine Learning Fundamentals", "Docker & Kubernetes"],
+    "System Design": ["Algorithms", "Data Structures"],
+    "Data Science Capstone Project": ["Machine Learning Fundamentals", "Data Visualization", "SQL Basics"],
+    "Talent Acquisition": ["HR Fundamentals"],
+    "CRM & Salesforce": ["Sales Fundamentals"],
+    "Content Marketing": ["Digital Marketing Basics"],
+    "Agile & Scrum": ["Project Management Basics"],
+    "Leadership & Management": ["Communication Skills", "Project Management Basics"]
+  },
+  "skill_aliases": {
+    "python": "Python Intermediate",
+    "py": "Python Basics",
+    "ml": "Machine Learning Fundamentals",
+    "machine learning": "Machine Learning Fundamentals",
+    "deep learning": "Deep Learning",
+    "dl": "Deep Learning",
+    "nlp": "NLP Fundamentals",
+    "natural language processing": "NLP Fundamentals",
+    "sql": "SQL Basics",
+    "database": "SQL Basics",
+    "data analysis": "Data Analysis with Pandas",
+    "pandas": "Data Analysis with Pandas",
+    "numpy": "Data Analysis with Pandas",
+    "statistics": "Statistics for Data Science",
+    "stats": "Statistics for Data Science",
+    "javascript": "JavaScript Basics",
+    "js": "JavaScript Basics",
+    "react": "React Fundamentals",
+    "reactjs": "React Fundamentals",
+    "git": "Git & Version Control",
+    "github": "Git & Version Control",
+    "docker": "Docker & Kubernetes",
+    "kubernetes": "Docker & Kubernetes",
+    "k8s": "Docker & Kubernetes",
+    "aws": "Cloud Fundamentals (AWS)",
+    "cloud": "Cloud Fundamentals (AWS)",
+    "data visualization": "Data Visualization",
+    "tableau": "Data Visualization",
+    "project management": "Project Management Basics",
+    "agile": "Agile & Scrum",
+    "scrum": "Agile & Scrum",
+    "communication": "Communication Skills",
+    "sales": "Sales Fundamentals",
+    "crm": "CRM & Salesforce",
+    "salesforce": "CRM & Salesforce",
+    "hr": "HR Fundamentals",
+    "human resources": "HR Fundamentals",
+    "recruitment": "Talent Acquisition",
+    "marketing": "Digital Marketing Basics",
+    "digital marketing": "Digital Marketing Basics",
+    "content": "Content Marketing",
+    "excel": "Excel for Business",
+    "finance": "Financial Analysis",
+    "linux": "Linux Basics",
+    "leadership": "Leadership & Management",
+    "management": "Leadership & Management",
+    "mlops": "MLOps Fundamentals",
+    "system design": "System Design",
+    "programming": "Programming Basics"
+  }
+}
