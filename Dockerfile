@@ -1,3 +1,6 @@
+
+
+
 FROM python:3.11-slim
 WORKDIR /app
 COPY requirements.txt .
@@ -6,5 +9,3 @@ COPY . .
 EXPOSE 5000
 ENV PYTHONUNBUFFERED=1
 CMD ["python", "backend/app.py"]
-
-
