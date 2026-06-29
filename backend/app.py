@@ -3,7 +3,7 @@ AI-Adaptive Onboarding Engine - Backend
 Flask API with skill extraction, gap analysis, and adaptive learning path generation
 """
 
-from flask import Flask, request, jsonify, send_from_directory
+from flask import Flask, request, jsonify, send_from_directory, render_template
 
 import json
 import re
