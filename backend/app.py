@@ -752,13 +752,21 @@ def ping():
 
 if __name__ == '__main__':
     import logging
+    import os
+
     log = logging.getLogger('werkzeug')
-    log.setLevel(logging.WARNING)  # suppress noisy request logs
+    log.setLevel(logging.WARNING)
+
     print("\n" + "="*55)
     print("  NSAALP Server Ready!")
     print("  Open in browser: http://127.0.0.1:5000")
     print("="*55 + "\n")
-    app.run(debug=False, host='0.0.0.0', port=5000)
+
+    app.run(
+        debug=False,
+        host='0.0.0.0',
+        port=int(os.environ.get("PORT", 5000))
+    )
 
 
     
