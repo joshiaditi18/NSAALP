@@ -2,84 +2,171 @@
 
 AI-powered skill gap analysis and personalized learning pathway generator.
 
+## 🚀 Live Demo
+
+https://nsaalp-2.onrender.com
+
 ---
-## Setup Instructions
 
-### Step 1 — Install dependencies
-pip install Flask pdfminer.six pdfplumber pypdf
+## Setup Instructions (Local)
 
-### Step 2 — Run the server
-cd ai-onboarding-engine
+### Step 1 — Clone repository
+
+```bash
+git clone https://github.com/joshiaditi18/NSAALP.git
+cd NSAALP
+```
+
+### Step 2 — Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### Step 3 — Run server
+
+```bash
 python run.py
+```
 
-### Step 3 — Open browser
+### Step 4 — Open browser
+
+```
 http://127.0.0.1:5000
+```
 
 ---
 
 ## Dependencies
+
 | Package | Version | Purpose |
-|---------|---------|---------|
+|---|---|---|
 | Flask | >=2.3.0 | Web server and REST API |
-| pdfminer.six | >=20221105 | PDF extraction (primary) |
-| pdfplumber | >=0.9.0 | PDF extraction (structured) |
-| pypdf | >=3.0.0 | PDF extraction (fallback) |
+| gunicorn | latest | Production server |
+| pdfminer.six | >=20221105 | PDF extraction |
+| pdfplumber | >=0.9.0 | Structured PDF extraction |
+| pypdf | >=3.0.0 | PDF extraction fallback |
 
 ---
 
-## Skill Gap Analysis Logic
+## Features
 
 ### Skill Extraction
-- Text matched against 80+ O*NET skill terms
-- Alias resolution: "ML" → Machine Learning,
-  "k8s" → Docker & Kubernetes, "pandas" → Data Analysis with Pandas
+- Matches resume text against 80+ O*NET skill terms
+- Alias resolution:
+  - ML → Machine Learning
+  - k8s → Docker & Kubernetes
+  - pandas → Data Analysis with Pandas
 
-### Gap Calculation — Jaccard Similarity
-Match % = |Resume Skills ∩ JD Skills| / |JD Skills| × 100
+### Skill Gap Analysis
+
+Uses Jaccard Similarity:
+
+```
+Match % =
+|Resume Skills ∩ Job Skills|
+---------------------------
+       |Job Skills|
+       × 100
+```
 
 Example:
-  Resume = {Python, SQL, Pandas}
-  JD     = {Python, SQL, Machine Learning, Docker, NLP}
-  Match  = 2/5 × 100 = 40%
 
-### Adaptive Pathing — Kahn's Topological Sort
-1. Build Directed Acyclic Graph of skill dependencies
-   Deep Learning → ML → Python → Programming Basics
-2. Run Kahn's BFS algorithm to sort prerequisites first
-3. Filter by user level:
-   Beginner  → all steps included
-   Intermediate → skip known basics  
-   Advanced  → skip all beginner courses
+```
+Resume:
+Python, SQL, Pandas
+
+Job:
+Python, SQL, Machine Learning, Docker, NLP
+
+Match:
+2/5 × 100 = 40%
+```
 
 ---
 
-## Datasets Used
-1. Kaggle Resume Dataset — Sneha Anbhawal (2023)
-   https://kaggle.com/datasets/snehaanbhawal/resume-dataset
-2. O*NET Skills Database v28.0 — U.S. Dept. of Labor
-   https://onetcenter.org/db_releases.html
-3. Jobs & Job Description Dataset — Kshitiz Regmi
-   https://kaggle.com/datasets/kshitizregmi/jobs-and-job-description
+## Adaptive Learning Path
+
+Uses Kahn's Topological Sort algorithm.
+
+Skill dependency example:
+
+```
+Deep Learning
+      ↓
+Machine Learning
+      ↓
+Python
+      ↓
+Programming Basics
+```
+
+Learning levels:
+
+- Beginner → complete pathway
+- Intermediate → removes known basics
+- Advanced → removes beginner courses
+
+---
+
+## Dataset Sources
+
+1. Kaggle Resume Dataset  
+2. O*NET Skills Database  
+3. Jobs & Job Description Dataset
 
 ---
 
 ## Project Structure
-ai-onboarding-engine/
-├── backend/app.py          # Flask API + all AI logic
-├── frontend/index.html     # Single-page UI
-├── frontend/static/css/    # Stylesheet
-├── frontend/static/js/     # Frontend logic
-├── data/courses.json       # Course catalogue
-├── Dockerfile
+
+```
+NSAALP/
+│
+├── backend/
+│   └── app.py              # Flask API + AI logic
+│
+├── frontend/
+│   ├── index.html
+│   └── static/
+│       ├── css/
+│       └── js/
+│
+├── data/
+│   └── courses.json
+│
+├── run.py
 ├── requirements.txt
-└── run.py
+├── Dockerfile
+└── Procfile
 ```
 
 ---
 
-### 2. requirements.txt — Should Look Like This
+## API Health Check
+
 ```
-Flask>=2.3.0
-pdfminer.six>=20221105
-pdfplumber>=0.9.0
-pypdf>=3.0.0
+GET /api/ping
+```
+
+Response:
+
+```json
+{
+ "status":"ok",
+ "message":"Backend is running"
+}
+```
+
+---
+
+## Deployment
+
+Deployed using:
+
+- Render
+- Gunicorn
+- Flask
+
+```
+gunicorn run:app
+```
